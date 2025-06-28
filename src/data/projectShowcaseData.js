@@ -5,7 +5,7 @@ const projectShowcaseData = [
     id: "Grocygo",
     title: "GrocyGo",
     description: "Grocery Delivery UI",
-    imageUrl: "/Projectimage/GrocyGo4.png",
+    imageUrl: "/Projectimage/grocygo.png",
     bgColor: "#f4f0e5", // cream background
   },
   {
