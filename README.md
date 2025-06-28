@@ -1,73 +1,81 @@
-# Welcome to your Lovable project
+<div align="center">
+  <img src="public/Projectimage/hero.png" alt="Banner" width="100%" />
 
-## Project info
+  <h1>💻 Shivam Gupta — Developer Portfolio</h1>
 
-**URL**: https://lovable.dev/projects/becaa99c-380c-444b-9f17-034c39a3ec1c
+  <p>
+    <strong>Full Stack & Mobile App Developer</strong><br />
+    Crafting modern, high-performance websites & mobile apps with a blend of art and code.
+  </p>
 
-## How can I edit this code?
+  <a href="https://shivamgupta-portfolio.vercel.app" target="_blank">
+    🚀 View Live Portfolio
+  </a>
+</div>
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🖌️ Overview
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/becaa99c-380c-444b-9f17-034c39a3ec1c) and start prompting.
+Welcome to my personal developer portfolio built with modern technologies and a heavy focus on **animation**, **interaction**, and **design precision**. This portfolio is designed to reflect not just my technical skills but also my passion for creativity and user experience.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 📸 Screenshots
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+| Desktop View | Mobile View |
+|-------------|-------------|
+| ![desktop](public/readme/desktop-preview.png) | ![mobile](public/readme/mobile-preview.png) |
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🚀 Features
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- 🎨 **Beautiful Animations** – Powered by Framer Motion & CSS for fluid transitions.
+- 🧠 **3D Model Integration** – FBX model rendering on the homepage.
+- 📱 **Mobile Responsive** – Clean experience across devices.
+- 🧩 **Modular Codebase** – Easy to extend and maintain.
+- 💬 **Dynamic Sections** – Projects, Blogs, Testimonials, and Contact.
+- ✨ **Interactive Effects** – Hover, Parallax, Scroll-based interactions.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🛠️ Tech Stack
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+| Category       | Tools Used |
+|----------------|------------|
+| **Frontend**   | React.js, Tailwind CSS |
+| **Animations** | Framer Motion, ScrollTrigger |
+| **3D Assets**  | react-three-fiber, drei |
+| **Icons**      | Lucide Icons |
+| **Deployment** | Vercel |
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 📬 Contact
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Feel free to reach out if you want to collaborate or have a project idea:
 
-## What technologies are used for this project?
+- 📧 shivamganesh2002@gmail.com  
+- 🌐 [LinkedIn](https://www.linkedin.com/in/shivam-gupta-63a991241/)  
+- 🧑‍💻 [GitHub](https://github.com/Shivamganesh)
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🏆 Acknowledgements
 
-## How can I deploy this project?
+- Inspired by modern portfolio designs and animated developer portfolios around the web.
+- Special thanks to [Framer Motion](https://www.framer.com/motion/) and [Three.js](https://threejs.org/) for visual magic ✨.
 
-Simply open [Lovable](https://lovable.dev/projects/becaa99c-380c-444b-9f17-034c39a3ec1c) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## 📜 License
 
-Yes it is!
+This project is open source and available under the [MIT License](LICENSE).
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+> “Design is not just what it looks like and feels like. Design is how it works.” – *Steve Jobs*
+
+
