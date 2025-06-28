@@ -4,7 +4,7 @@ import { GalleryImageType } from '../components/gallery/types';
 export const galleryImages: GalleryImageType[] = [
   {
     id: 1,
-    url: 'public/Projectimage/s1.png',
+    url: '/Projectimage/s1.png',
     alt: 'Cyberfiction',
     caption: 'Nature is my inspiration',
     favorite: true,
@@ -13,7 +13,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 2,
-    url: 'public/Projectimage/smoov4.jpg',
+    url: '/Projectimage/smoov4.jpg',
     alt: 'Smoov',
     favorite: true,
     aspectRatio: 'landscape',
@@ -21,7 +21,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 3,
-    url: 'public/Projectimage/s3.jpg',
+    url: '/Projectimage/s3.jpg',
     alt: 'Unigine Squad',
     caption: 'Lost in the mist',
     aspectRatio: 'portrait',
@@ -29,7 +29,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 4,
-    url: 'public/Projectimage/s2.jpg',
+    url: '/Projectimage/s2.jpg',
     alt: 'Nike Store',
     favorite: true,
     aspectRatio: 'landscape',
@@ -37,7 +37,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 5,
-    url: 'public/Projectimage/s7.jpg',
+    url: '/Projectimage/s7.jpg',
     alt: 'Design',
     favorite: true,
     caption: 'Golden hour magic',
@@ -46,7 +46,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 6,
-    url: 'public/Projectimage/s6.jpg',
+    url: '/Projectimage/s6.jpg',
     alt: 'Lagunitas',
     favorite: true,
     aspectRatio: 'portrait',
@@ -54,21 +54,21 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 7,
-    url: 'public/Projectimage/fanta.png',
+    url: '/Projectimage/fanta.png',
     alt: 'Fanta Design',
     aspectRatio: 'portrait',
     size: 'large',
   },
   {
     id: 7,
-    url: 'public/Projectimage/fanta.png',
+    url: '/Projectimage/fanta.png',
     alt: 'Fanta Design',
     aspectRatio: 'portrait',
     size: 'large',
   },
   {
     id: 8,
-    url: 'public/Projectimage/s4.jpg',
+    url: '/Projectimage/s4.jpg',
     alt: 'Zorro Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -76,7 +76,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 9,
-    url: 'public/Projectimage/smoov.jpg',
+    url: '/Projectimage/smoov.jpg',
     alt: 'Smoov',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -84,7 +84,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 10,
-    url: 'public/Projectimage/s8.jpg',
+    url: '/Projectimage/s8.jpg',
     alt: 'Sundown Studio',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -92,7 +92,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 11,
-    url: 'public/Projectimage/s9.jpg',
+    url: '/Projectimage/s9.jpg',
     alt: 'Magma',
     caption: 'Mirror of nature',
     aspectRatio: 'square',
@@ -100,7 +100,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 12,
-    url: 'public/Projectimage/s10..jpg',
+    url: '/Projectimage/s10..jpg',
     alt: 'Duo Studio',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -108,7 +108,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/s12.jpg',
+    url: '/Projectimage/s12.jpg',
     alt: 'Moheim',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -116,7 +116,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/s13.jpg',
+    url: '/Projectimage/s13.jpg',
     alt: 'Animation',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -124,7 +124,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/s14.jpg',
+    url: '/Projectimage/s14.jpg',
     alt: 'Portfolio Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -132,7 +132,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/s15.jpg',
+    url: '/Projectimage/s15.jpg',
     alt: 'Miranda Paper Portfolio',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -140,7 +140,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/s16.jpg',
+    url: '/Projectimage/s16.jpg',
     alt: 'Miranda design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -148,7 +148,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/s20.jpg',
+    url: '/Projectimage/s20.jpg',
     alt: 'Decathlon Wlkr76',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -156,7 +156,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/s21.jpg',
+    url: '/Projectimage/s21.jpg',
     alt: 'Animation Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -164,7 +164,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/s22.jpg',
+    url: '/Projectimage/s22.jpg',
     alt: 'Brandbeat',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -172,7 +172,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/s23.jpg',
+    url: '/Projectimage/s23.jpg',
     alt: 'Wlkr76 Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -180,7 +180,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/s24.jpg',
+    url: '/Projectimage/s24.jpg',
     alt: 'Wlkr Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -188,7 +188,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/flowimg.jpg',
+    url: '/Projectimage/flowimg.jpg',
     alt: 'Flow Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -197,7 +197,7 @@ export const galleryImages: GalleryImageType[] = [
   
   {
     id: 13,
-    url: 'public/Projectimage/s17.jpg',
+    url: '/Projectimage/s17.jpg',
     alt: 'Miranda Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -205,7 +205,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/s26.jpg',
+    url: '/Projectimage/s26.jpg',
     alt: 'MCBrain Ai',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -213,7 +213,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/s18.jpg',
+    url: '/Projectimage/s18.jpg',
     alt: 'MCBrain Ai',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -221,7 +221,7 @@ export const galleryImages: GalleryImageType[] = [
   },
     {
     id: 13,
-    url: 'public/Projectimage/mojitoimg.jpg',
+    url: '/Projectimage/mojitoimg.jpg',
     alt: 'Mojito Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -229,7 +229,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/s28.jpg',
+    url: '/Projectimage/s28.jpg',
     alt: 'MCBrain Ai',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -237,7 +237,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/flowimg4.jpg',
+    url: '/Projectimage/flowimg4.jpg',
     alt: 'Flowparty Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -245,7 +245,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/kothik.jpg',
+    url: '/Projectimage/kothik.jpg',
     alt: 'Kothik Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -253,7 +253,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: 'public/Projectimage/s27.jpg',
+    url: '/Projectimage/s27.jpg',
     alt: 'Portfolio Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -261,7 +261,7 @@ export const galleryImages: GalleryImageType[] = [
   },
  {
     id: 13,
-    url: 'public/Projectimage/flowimg.jpg',
+    url: '/Projectimage/flowimg.jpg',
     alt: 'Portfolio Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
