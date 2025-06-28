@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import * as THREE from 'three';
 
 function FloatingModel() {
-  const model = useFBX('public/models/3d.fbx'); // Remove 'public' prefix; Next.js auto-serves from public/
+  const model = useFBX('/models/3d.fbx'); 
   const ref = useRef<THREE.Group>(null!);
   const [hovered, setHovered] = useState(false);
 
