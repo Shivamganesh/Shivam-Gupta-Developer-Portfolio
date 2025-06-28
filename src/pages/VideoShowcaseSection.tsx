@@ -21,7 +21,7 @@ export default function ScrollVideoSection() {
     >
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
         <motion.video
-          src="public/Projectimage/flowvideo.webm"
+          src="/Projectimage/flowvideo.webm"
           autoPlay
           muted
           loop
