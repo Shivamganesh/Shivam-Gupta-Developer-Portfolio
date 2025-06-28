@@ -188,7 +188,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: '/Projectimage/flowimg.jpg',
+    url: '/Projectimage/flowimg.JPG',
     alt: 'Flow Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -221,7 +221,7 @@ export const galleryImages: GalleryImageType[] = [
   },
     {
     id: 13,
-    url: '/Projectimage/mojitoimg.jpg',
+    url: '/Projectimage/mojitoimg.JPG',
     alt: 'Mojito Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -245,7 +245,7 @@ export const galleryImages: GalleryImageType[] = [
   },
   {
     id: 13,
-    url: '/Projectimage/kothik.jpg',
+    url: '/Projectimage/kothik.JPG',
     alt: 'Kothik Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
@@ -261,7 +261,7 @@ export const galleryImages: GalleryImageType[] = [
   },
  {
     id: 13,
-    url: '/Projectimage/flowimg.jpg',
+    url: '/Projectimage/flowimg.JPG',
     alt: 'Portfolio Design',
     caption: 'Mirror of nature',
     aspectRatio: 'landscape',
