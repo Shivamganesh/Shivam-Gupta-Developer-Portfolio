@@ -11,9 +11,8 @@ import NotFound from "./pages/NotFound";
 import BlogPostPage from "./pages/BlogPostPage";
 import LoadingPage from './components/LoadingScreen';
 import AiAnalyzerPage from "./pages/AiAnalyzerPage";
-import AIJobAnalyzer from "./pages/ai-job-analyzer";
-import AIResumeAnalyzer from "./pages/ai-resume-analyzer";
-
+import JobAnalyzer from "./pages/ai-job-analyzer";
+import ResumeReviewer from "./pages/ai-resume-analyzer";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -41,9 +40,9 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/blog/:id" element={<BlogPostPage />} />
-             <Route path="/ai-analyzer" element={<AiAnalyzerPage />} />
-                    <Route path="/ai-job-analyzer" element={<AIJobAnalyzer />} />
-                            <Route path="/ai-resume-analyzer" element={<AIResumeAnalyzer />} />
+                 <Route path="/ai-analyzer" element={<AiAnalyzerPage />} />
+                     <Route path="/ai-job-analyzer" element={<JobAnalyzer />} />
+                            <Route path="/ai-resume-analyzer" element={<ResumeReviewer />} />
             {/* Catch-all route */}
             <Route path="*" element={<NotFound />} />
           </Routes>
