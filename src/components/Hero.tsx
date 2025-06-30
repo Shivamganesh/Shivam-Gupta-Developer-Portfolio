@@ -108,15 +108,19 @@ const Hero = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <a href="#projects">
-                <Button
-                  size="lg"
-                  className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white border-0 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1 group"
-                >
-                  <Code className="mr-2 group-hover:rotate-12 transition-transform" size={20} />
-                  Explore Work
-                </Button>
-              </a>
+                  <a
+  href="/ai-analyzer"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button
+    size="lg"
+    className="rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white border-0 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1 group"
+  >
+    <Sparkles className="mr-2 group-hover:rotate-12 transition-transform" size={20} />
+    AI Analyzer
+  </Button>
+</a>
               <a
                 href="https://www.linkedin.com/in/shivam-gupta-63a991241/"
                 target="_blank"
