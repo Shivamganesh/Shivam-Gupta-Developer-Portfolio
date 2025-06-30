@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Zap, Code } from "lucide-react";
+import { Zap, Code, Sparkles } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import ThreeModel from "./FbxModel";
 import { cn } from "@/lib/utils";
