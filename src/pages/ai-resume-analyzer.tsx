@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { UploadCloud, FileText, Loader2, AlertCircle } from "lucide-react";
 import * as pdfjsLib from "pdfjs-dist";
+import workerSrc from "../utils/pdf.worker" ;
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
