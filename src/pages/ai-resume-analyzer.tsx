@@ -3,10 +3,27 @@ import { motion, AnimatePresence } from "framer-motion";
 import { UploadCloud, FileText, Loader2, AlertCircle } from "lucide-react";
 import * as pdfjsLib from "pdfjs-dist";
 import workerSrc from "../utils/pdf.worker" ;
+import pdfjsWorker from "pdfjs-dist/build/pdf.worker.min.js?worker";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 const ResumeReviewer = () => {
+  const parsePdfText = async (file) => {
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const maxPages = pdf.numPages;
+  const pageTexts = [];
+
+  for (let pageNum = 1; pageNum <= maxPages; pageNum++) {
+    const page = await pdf.getPage(pageNum);
+    const textContent = await page.getTextContent();
+    const pageText = textContent.items.map((item) => item.str).join(" ");
+    pageTexts.push(pageText);
+  }
+
+  return pageTexts.join("\n");
+};
   const [uploadedFile, setUploadedFile] = useState(null);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
