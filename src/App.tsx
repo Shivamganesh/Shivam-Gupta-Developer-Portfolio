@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import BlogPostPage from "./pages/BlogPostPage";
 import LoadingPage from './components/LoadingScreen';
+import AiAnalyzerPage from "./pages/AiAnalyzerPage";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -37,6 +38,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/blog/:id" element={<BlogPostPage />} />
+             <Route path="/ai-analyzer" element={<AiAnalyzerPage />} />
             {/* Catch-all route */}
             <Route path="*" element={<NotFound />} />
           </Routes>
