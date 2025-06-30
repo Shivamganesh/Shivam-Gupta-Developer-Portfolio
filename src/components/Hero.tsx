@@ -108,7 +108,7 @@ const Hero = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-                  <a
+ <a
   href="/ai-analyzer"
   target="_blank"
   rel="noopener noreferrer"
