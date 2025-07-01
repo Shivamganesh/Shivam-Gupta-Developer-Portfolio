@@ -1,19 +1,21 @@
+// /api/resume-analyzer.js
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Only POST allowed" });
+    return res.status(405).json({ error: "Only POST method is allowed." });
   }
 
   const { resumeText } = req.body;
 
   const prompt = `
-Analyze the resume text and return a JSON with:
-1. "Resume Score"
-2. "Matched Keywords"
-3. "Suggestions for improvement"
+Analyze the resume text and return a JSON object with:
+1. "Resume Score" (a number out of 100)
+2. "Matched Keywords" (array of keywords matched)
+3. "Suggestions for improvement" (array of tips)
 
 Resume:
 ${resumeText}
-  `;
+`;
 
   try {
     const openaiRes = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -32,11 +34,10 @@ ${resumeText}
     const data = await openaiRes.json();
     const aiResponse = data.choices?.[0]?.message?.content;
 
-    // Try parsing the response
     let parsed;
     try {
       parsed = JSON.parse(aiResponse);
-    } catch (err) {
+    } catch (parseError) {
       console.error("Invalid JSON from OpenAI:", aiResponse);
       return res.status(500).json({ error: "AI response was not valid JSON", raw: aiResponse });
     }
