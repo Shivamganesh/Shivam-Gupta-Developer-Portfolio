@@ -4,7 +4,6 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-   assetsInclude: ["**/*.pdf"],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -16,6 +15,7 @@ export default defineConfig({
  server: {
   // remove: historyApiFallback
   port: 3000, // ✅ you can keep other config here
-}
+},
+   assetsInclude: ["**/*.pdf"],
 
 });
