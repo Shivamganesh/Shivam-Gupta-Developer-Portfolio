@@ -49,14 +49,16 @@ const ResumeReviewer = () => {
         body: JSON.stringify({ resumeText }),
       });
 
-      const data = await response.json();
-      const parsed = JSON.parse(data.result);
+ const data = await response.json();
 
-      setResult({
-        score: parsed["Resume Score"] || 0,
-        keywords: parsed["Matched Keywords"] || [],
-        suggestions: parsed["Suggestions for improvement"] || [],
-      });
+if (data.error) throw new Error(data.error);
+
+setResult({
+  score: data.result["Resume Score"] || 0,
+  keywords: data.result["Matched Keywords"] || [],
+  suggestions: data.result["Suggestions for improvement"] || [],
+});
+
     } catch (err) {
       console.error("Resume parse/analyze error:", err);
       setError("Something went wrong while analyzing the resume.");
