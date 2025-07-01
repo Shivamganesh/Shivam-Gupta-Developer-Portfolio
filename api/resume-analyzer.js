@@ -1,30 +1,25 @@
-// api/resume-analyzer.js
-const fetch = require("node-fetch");
-
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Only POST requests allowed" });
+    return res.status(405).json({ error: "Only POST allowed" });
   }
 
   const { resumeText } = req.body;
 
   const prompt = `
-You are an AI resume reviewer.
-
-Given the following resume text, return a JSON with:
-1. "Resume Score" (0–100)
-2. "Matched Keywords" (relevant to tech job search)
+Analyze the resume text and return a JSON with:
+1. "Resume Score"
+2. "Matched Keywords"
 3. "Suggestions for improvement"
 
 Resume:
 ${resumeText}
-`;
+  `;
 
   try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const openaiRes = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -34,12 +29,21 @@ ${resumeText}
       }),
     });
 
-    const data = await response.json();
-    const aiMessage = data.choices[0]?.message?.content;
+    const data = await openaiRes.json();
+    const aiResponse = data.choices?.[0]?.message?.content;
 
-    res.status(200).json({ result: aiMessage });
-  } catch (err) {
-    console.error("Resume AI error:", err);
-    res.status(500).json({ error: "Error analyzing resume" });
+    // Try parsing the response
+    let parsed;
+    try {
+      parsed = JSON.parse(aiResponse);
+    } catch (err) {
+      console.error("Invalid JSON from OpenAI:", aiResponse);
+      return res.status(500).json({ error: "AI response was not valid JSON", raw: aiResponse });
+    }
+
+    res.status(200).json({ result: parsed });
+  } catch (error) {
+    console.error("AI Resume Analyzer Error:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
-};
+}
