@@ -1,33 +1,28 @@
-// api/job-analyzer.js
-const fetch = require("node-fetch");
-
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Only POST requests allowed" });
+    return res.status(405).json({ error: "Method Not Allowed" });
   }
 
   const { jobDescription, resumeText, skills, projects } = req.body;
 
   const prompt = `
-You are a resume/job fit evaluator AI.
-Compare the following job description to this candidate's resume, skills, and projects.
-
-Return a JSON with:
-1. Match Score (0–100)
-2. Key matching skills
-3. Missing but important skills
-4. Suggestions for improvement
+You are an AI job matching assistant.
+Compare the job description to this candidate's resume, skills, and projects.
+Return JSON with:
+1. Match Score (0-100)
+2. Missing but important skills
+3. Suggestions for improvement
 
 Job Description:
 ${jobDescription}
 
-Candidate Resume Text:
+Candidate Resume:
 ${resumeText}
 
-Candidate Skills:
+Skills:
 ${skills.join(", ")}
 
-Candidate Projects:
+Projects:
 ${projects.join(", ")}
 `;
 
@@ -35,7 +30,7 @@ ${projects.join(", ")}
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -45,12 +40,11 @@ ${projects.join(", ")}
       }),
     });
 
-    const data = await response.json();
-    const aiMessage = data.choices[0]?.message?.content;
+    const json = await response.json();
+    const result = json.choices?.[0]?.message?.content;
 
-    res.status(200).json({ result: aiMessage });
+    return res.status(200).json({ result });
   } catch (err) {
-    console.error("AI job analyzer error:", err);
-    res.status(500).json({ error: "Error generating analysis" });
+    return res.status(500).json({ error: "AI request failed" });
   }
-};
+}
