@@ -1,27 +1,20 @@
-import { defineConfig } from "vite";
+import { defineConfig } from 'vite';
 import react from "@vitejs/plugin-react-swc";
-import path from "path";
-import { componentTagger } from "lovable-tagger";
+import path from 'path';
 
-
-export default defineConfig(({ mode }) => ({
-  //  base: '/Shivam-Gupta-Developer-Portfolio/',
-  server: {
-    host: "::",
-    port: 8080,
-  },
-  plugins: [
-    react(),
-    mode === 'development' &&
-    componentTagger(),
-  ].filter(Boolean),
+export default defineConfig({
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-   optimizeDeps: {
-    include: ['pdfjs-dist/build/pdf.worker.entry']
-  }
- 
-}));
+  build: {
+    outDir: "dist",
+  },
+ server: {
+  // remove: historyApiFallback
+  port: 3000, // ✅ you can keep other config here
+}
+
+});
