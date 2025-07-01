@@ -1,3 +1,5 @@
+// components/ResumeReviewer.jsx
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { UploadCloud, FileText, Loader2, AlertCircle } from "lucide-react";
@@ -6,9 +8,7 @@ import pdfWorker from "pdfjs-dist/build/pdf.worker.entry";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
-
 const ResumeReviewer = () => {
-
   const [uploadedFile, setUploadedFile] = useState(null);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -34,13 +34,9 @@ const ResumeReviewer = () => {
       for (let i = 1; i <= pdf.numPages; i++) {
         const page = await pdf.getPage(i);
         const content = await page.getTextContent();
-       resumeText += content.items
-  .map((item) => {
-    if ("str" in item) return item.str;
-    return "";
-  })
-  .join(" ") + "\n";
-
+        resumeText += content.items
+          .map((item) => ("str" in item ? item.str : ""))
+          .join(" ") + "\n";
       }
 
       const response = await fetch("/api/resume-analyzer", {
@@ -49,16 +45,15 @@ const ResumeReviewer = () => {
         body: JSON.stringify({ resumeText }),
       });
 
- const data = await response.json();
+      const data = await response.json();
 
-if (data.error) throw new Error(data.error);
+      if (data.error) throw new Error(data.error);
 
-setResult({
-  score: data.result["Resume Score"] || 0,
-  keywords: data.result["Matched Keywords"] || [],
-  suggestions: data.result["Suggestions for improvement"] || [],
-});
-
+      setResult({
+        score: data.result["Resume Score"] || 0,
+        keywords: data.result["Matched Keywords"] || [],
+        suggestions: data.result["Suggestions for improvement"] || [],
+      });
     } catch (err) {
       console.error("Resume parse/analyze error:", err);
       setError("Something went wrong while analyzing the resume.");
@@ -82,7 +77,7 @@ setResult({
           Receive an AI-powered resume score, keyword match, and improvement tips – all in seconds.
         </p>
 
-        {/* File Upload UI */}
+        {/* Upload Box */}
         <label
           htmlFor="resume-upload"
           className="cursor-pointer group relative inline-block w-full max-w-md mx-auto border-2 border-dashed border-purple-400 p-10 rounded-2xl hover:border-pink-500 transition-all duration-300"
@@ -98,7 +93,7 @@ setResult({
           <p className="mt-4 text-purple-200">Click or Drag & Drop your resume PDF</p>
         </label>
 
-        {/* Loading */}
+        {/* Loader */}
         {loading && (
           <div className="mt-10 flex items-center justify-center text-pink-300">
             <Loader2 className="mr-2 animate-spin" />
@@ -106,7 +101,7 @@ setResult({
           </div>
         )}
 
-        {/* Error Message */}
+        {/* Error */}
         {error && (
           <motion.div
             className="mt-6 bg-red-500/10 text-red-300 border border-red-400 p-4 rounded-xl flex items-center justify-center gap-3"
@@ -118,7 +113,7 @@ setResult({
           </motion.div>
         )}
 
-        {/* Output UI */}
+        {/* Results */}
         <AnimatePresence>
           {result && !loading && (
             <motion.div
@@ -135,22 +130,21 @@ setResult({
                 <strong>Score:</strong>{" "}
                 <span className="text-green-400 font-bold">{result.score}%</span>
               </p>
-
-              {/* Progress bar */}
               <div className="w-full h-3 bg-slate-800 rounded-full mb-6">
                 <div
                   className="h-3 bg-gradient-to-r from-green-400 to-pink-400 rounded-full"
                   style={{ width: `${result.score}%` }}
                 />
               </div>
-
               <p className="text-blue-100 mb-2">
                 <strong>Matched Keywords:</strong>{" "}
                 {result.keywords.length > 0 ? result.keywords.join(", ") : "None"}
               </p>
               <p className="text-blue-100">
                 <strong>Suggestions:</strong>{" "}
-                {result.suggestions.length > 0 ? result.suggestions.join(", ") : "No suggestions needed 🎉"}
+                {result.suggestions.length > 0
+                  ? result.suggestions.join(", ")
+                  : "No suggestions needed 🎉"}
               </p>
             </motion.div>
           )}
