@@ -1,29 +1,30 @@
+// api/resume-analyzer.js
+const fetch = require("node-fetch");
 
-
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Only POST allowed" });
+    return res.status(405).json({ error: "Only POST requests allowed" });
   }
 
   const { resumeText } = req.body;
 
   const prompt = `
-You are an AI resume reviewer. Analyze this resume text.
+You are an AI resume reviewer.
 
-Return a JSON with:
-1. Resume Score (0-100)
-2. Matched Keywords (array)
-3. Suggestions for improvement (array)
+Given the following resume text, return a JSON with:
+1. "Resume Score" (0–100)
+2. "Matched Keywords" (relevant to tech job search)
+3. "Suggestions for improvement"
 
 Resume:
 ${resumeText}
-  `;
+`;
 
   try {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -39,6 +40,6 @@ ${resumeText}
     res.status(200).json({ result: aiMessage });
   } catch (err) {
     console.error("Resume AI error:", err);
-    res.status(500).json({ error: "Failed to analyze resume" });
+    res.status(500).json({ error: "Error analyzing resume" });
   }
-}
+};
