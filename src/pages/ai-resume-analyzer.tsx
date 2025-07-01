@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { UploadCloud, FileText, Loader2, AlertCircle } from "lucide-react";
-import * as pdfjsLib from "pdfjs-dist";
-import workerSrc from "../utils/pdf.worker"; // no .js extension
+import * as pdfjsLib from "pdfjs-dist/build/pdf";
+import pdfWorker from "pdfjs-dist/build/pdf.worker.entry";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = workerSrc;
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 
 const ResumeReviewer = () => {
