@@ -7,15 +7,22 @@ export default async function handler(req, res) {
 
   const { resumeText } = req.body;
 
-  const prompt = `
-Analyze the resume text and return a JSON object with:
-1. "Resume Score" (a number out of 100)
-2. "Matched Keywords" (array of keywords matched)
-3. "Suggestions for improvement" (array of tips)
+const prompt = `
+You are an expert AI resume reviewer.
+
+Given the resume text below, respond ONLY with a valid JSON object having:
+{
+  "Resume Score": number (0 to 100),
+  "Matched Keywords": [array of strings],
+  "Suggestions for improvement": [array of strings]
+}
+
+DO NOT add explanations. DO NOT say anything outside the JSON.
 
 Resume:
 ${resumeText}
 `;
+
 
   try {
     const openaiRes = await fetch("https://api.openai.com/v1/chat/completions", {
