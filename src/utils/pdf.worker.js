@@ -1,4 +1,1 @@
-// src/utils/pdf.worker.js
-import { PDFWorker } from 'pdfjs-dist/build/pdf.worker.entry';
-
-export default PDFWorker;
+importScripts("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js");
