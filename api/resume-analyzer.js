@@ -1,5 +1,3 @@
-// /api/resume-analyzer.js
-
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Only POST method is allowed." });
@@ -7,22 +5,21 @@ export default async function handler(req, res) {
 
   const { resumeText } = req.body;
 
-const prompt = `
-You are an expert AI resume reviewer.
+  const prompt = `
+You are a strict JSON-only AI Resume Reviewer.
 
-Given the resume text below, respond ONLY with a valid JSON object having:
+Given the resume below, respond ONLY with a valid JSON object like this:
 {
-  "Resume Score": number (0 to 100),
-  "Matched Keywords": [array of strings],
-  "Suggestions for improvement": [array of strings]
+  "Resume Score": 75,
+  "Matched Keywords": ["React.js", "Node.js", "MongoDB"],
+  "Suggestions for improvement": ["Add more backend projects", "Include measurable achievements"]
 }
 
-DO NOT add explanations. DO NOT say anything outside the JSON.
+Do NOT include explanations, introductions, or extra text. Only output a JSON object.
 
 Resume:
 ${resumeText}
 `;
-
 
   try {
     const openaiRes = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -39,19 +36,26 @@ ${resumeText}
     });
 
     const data = await openaiRes.json();
-    const aiResponse = data.choices?.[0]?.message?.content;
 
+    const aiResponse = data.choices?.[0]?.message?.content?.trim();
+
+    console.log("🔍 Raw AI Response:", aiResponse); // for debugging
+
+    // Try parsing the JSON safely
     let parsed;
     try {
       parsed = JSON.parse(aiResponse);
     } catch (parseError) {
-      console.error("Invalid JSON from OpenAI:", aiResponse);
-      return res.status(500).json({ error: "AI response was not valid JSON", raw: aiResponse });
+      console.error("❌ Failed to parse AI JSON:", parseError);
+      return res
+        .status(500)
+        .json({ error: "AI response was not valid JSON", raw: aiResponse });
     }
 
+    // Success
     res.status(200).json({ result: parsed });
   } catch (error) {
-    console.error("AI Resume Analyzer Error:", error);
+    console.error("🔥 AI Resume Analyzer Server Error:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 }
