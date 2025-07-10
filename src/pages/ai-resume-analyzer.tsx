@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { extractTextFromPdf } from "../utils/extractTextFromPdf";
+import { extractTextFromPdf } from "../../utils/extractTextFromPdf";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 
