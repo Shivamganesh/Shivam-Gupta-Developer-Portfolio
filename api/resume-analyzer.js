@@ -1,26 +1,29 @@
+// /api/resume-analyzer.js
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method Not Allowed" });
+    return res.status(405).json({ error: "Only POST allowed" });
   }
 
   const { resumeText } = req.body;
 
   const prompt = `
-You are a resume review assistant.
-Analyze the following resume text and return JSON with:
-1. Resume Score (0-100)
-2. Matched Keywords
-3. Suggestions for improvement
+Only return a strict JSON like this (no explanation, no markdown):
 
-Resume Text:
-${resumeText}
+{
+  "Resume Score": number (0-100),
+  "Matched Keywords": [string],
+  "Suggestions for improvement": [string]
+}
+
+Resume:
+${resumeText.slice(0, 3500)}
 `;
 
   try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const openaiRes = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${process.env.portfolioai1}`,
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -30,11 +33,23 @@ ${resumeText}
       }),
     });
 
-    const json = await response.json();
-    const result = json.choices?.[0]?.message?.content;
+    const data = await openaiRes.json();
+    const aiContent = data.choices?.[0]?.message?.content;
 
-    return res.status(200).json({ result });
-  } catch (err) {
-    return res.status(500).json({ error: "AI request failed" });
+    let parsed;
+    try {
+      parsed = JSON.parse(aiContent);
+    } catch (err) {
+      console.error("Invalid JSON from OpenAI:", aiContent);
+      return res.status(500).json({
+        error: "AI response was not valid JSON",
+        raw: aiContent,
+      });
+    }
+
+    return res.status(200).json({ result: parsed });
+  } catch (error) {
+    console.error("Resume API Error:", error);
+    return res.status(500).json({ error: "Internal server error" });
   }
 }
